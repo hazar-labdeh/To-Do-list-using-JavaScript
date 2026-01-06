@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Todo Manager</title>
+  <link rel="stylesheet" href="./styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <main class="page">
+    <section class="section">
+      <h1 class="title">TodoInput</h1>
+
+      <div class="card">
+        <div class="inputRow">
+          <div class="inputIcon" aria-hidden="true">≡</div>
+          <input id="taskInput" class="textInput" type="text" placeholder="New Todo" />
+        </div>
+
+        <p id="inputError" class="errorText" role="alert"></p>
+
+        <button id="addTaskBtn" class="primaryBtn">Add new task</button>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="title">Todo List</h2>
+
+      <div class="tabs">
+        <button class="tabBtn active" data-filter="all">All</button>
+        <button class="tabBtn" data-filter="done">Done</button>
+        <button class="tabBtn" data-filter="todo">Todo</button>
+      </div>
+
+      <p id="listMessage" class="listMessage" role="status"></p>
+
+      <ul id="taskList" class="taskList"></ul>
+
+      <div class="actionsRow">
+        <button id="deleteDoneBtn" class="dangerBtn soft">Delete Done Tasks</button>
+        <button id="deleteAllBtn" class="dangerBtn hard">Delete All Tasks</button>
+      </div>
+    </section>
+  </main>
+
+
+  <div id="modalOverlay" class="modalOverlay hidden" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <h3 id="modalTitle" class="modalTitle"></h3>
+      <p id="modalText" class="modalText"></p>
+
+      <div id="modalInputWrap" class="modalInputWrap hidden">
+        <input id="modalInput" class="textInput" type="text" />
+        <p id="modalError" class="errorText" role="alert"></p>
+      </div>
+
+      <div class="modalActions">
+        <button id="modalCancel" class="ghostBtn">Cancel</button>
+        <button id="modalConfirm" class="primaryBtn">Confirm</button>
+      </div>
+    </div>
+  </div>
+
+
+  <script type="module" src="./firebase.js"></script>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
